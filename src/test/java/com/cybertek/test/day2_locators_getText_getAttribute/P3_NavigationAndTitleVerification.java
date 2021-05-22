@@ -20,9 +20,11 @@ public class P3_NavigationAndTitleVerification {
 
         //3- Click to Gmail from top right.
         //<---locating the web element --------><-click->
-        driver.findElement(By.linkText("Gmail")).click();
+        driver.findElement(By.partialLinkText("mail")).click();
 
-        //4- Verify title contains:
+        driver.findElement(By.linkText("Sign in")).click();
+
+            //4- Verify title contains:
         //Expected: Gmail
         String expectedInTitle = "Gmail";
         String actualTitle = driver.getTitle();
@@ -52,6 +54,7 @@ public class P3_NavigationAndTitleVerification {
         }else {
             System.out.println("Title verification FAILED!!!");
         }
+        driver.close();
 
     }
 
