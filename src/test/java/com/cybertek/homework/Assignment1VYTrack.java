@@ -4,6 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Assignment1VYTrack {
@@ -12,17 +13,19 @@ public class Assignment1VYTrack {
         // Setup Chrome browser
         WebDriverManager.chromedriver().setup();
 
-        // Open Chrome browser
+        // 1. Open Chrome browser
         WebDriver driver = new ChromeDriver();
 
-        //maximize browser
+        // 1.1 Maximize browser
         driver.manage().window().maximize();
 
         // 2.Go to https://qa3.vytrack.com/user/login
         driver.get("https://qa3.vytrack.com/user/login");
 
         // 3.Enter correct username
-        driver.findElement(By.id("prependedInput")).sendKeys("storemanager59");
+        WebElement userNameBox = driver.findElement(By.id("prependedInput"));
+        userNameBox.sendKeys("storemanager59");
+        // Thread.sleep(5000);
 
         // 4.Enter incorrect password
         driver.findElement(By.id("prependedInput2")).sendKeys("User123" + Keys.ENTER);
@@ -38,10 +41,10 @@ public class Assignment1VYTrack {
         } else {
             System.out.println("test failed");
 
-            Thread.sleep(3000);
+
 
         }
-        driver.close();
+        // driver.close();
     }
 
 }
