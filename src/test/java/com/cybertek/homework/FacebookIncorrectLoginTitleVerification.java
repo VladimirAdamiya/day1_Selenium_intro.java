@@ -20,11 +20,11 @@ public class FacebookIncorrectLoginTitleVerification {
         driver.findElement(By.id("email")).sendKeys("Gavin@gmail.com");
 
         // 4.Enter incorrect password
-        driver.findElement(By.id("pass")).sendKeys("123485632" + Keys.ENTER);
-        Thread.sleep(20000);
+        driver.findElement(By.id("pass")).sendKeys("UserUser123" + Keys.ENTER);
+        Thread.sleep(5000);
 
         // 5.Verify title changed to:
-        String expectedTitle = "Log into Facebook";
+        String expectedTitle = "Invalid user name or password.";
         String actualTitle = driver.getTitle();
 
         if (actualTitle.equals(expectedTitle)) {
